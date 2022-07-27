@@ -1,0 +1,25 @@
+{
+  "name": "tvmaze.graphqlserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/millidavitti/TVMaze.GraphqlServer.git"
+  },
+  "keywords": [],
+  "author": "Donald Abua <abuadonald@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/millidavitti/TVMaze.GraphqlServer/issues"
+  },
+  "homepage": "https://github.com/millidavitti/TVMaze.GraphqlServer#readme",
+  "dependencies": {
+    "@graphql-mesh/cli": "^0.75.3",
+    "@graphql-mesh/json-schema": "^0.30.4",
+    "graphql": "^16.5.0"
+  }
+}
