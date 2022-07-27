@@ -1,0 +1,56 @@
+{
+	"data": [
+		{
+			"score": 1.2032617,
+			"show": {
+				"id": 15299,
+				"url": "https://www.tvmaze.com/shows/15299/the-boys",
+				"name": "The Boys",
+				"type": "Scripted",
+				"language": "English",
+				"genres": ["Drama", "Action", "Science-Fiction"],
+				"status": "Running",
+				"runtime": null,
+				"averageRuntime": 61,
+				"premiered": "2019-07-26",
+				"ended": null,
+				"officialSite": "https://www.amazon.com/dp/B07QQQ52B3",
+				"schedule": {
+					"time": "",
+					"days": ["Friday"]
+				},
+				"rating": {
+					"average": 8.4
+				},
+				"weight": 100,
+				"network": null,
+				"webChannel": {
+					"id": 3,
+					"name": "Prime Video",
+					"country": null,
+					"officialSite": "https://www.primevideo.com"
+				},
+				"dvdCountry": null,
+				"externals": {
+					"tvrage": null,
+					"thetvdb": 355567,
+					"imdb": "tt1190634"
+				},
+				"image": {
+					"medium": "https://static.tvmaze.com/uploads/images/medium_portrait/409/1024044.jpg",
+					"original": "https://static.tvmaze.com/uploads/images/original_untouched/409/1024044.jpg"
+				},
+				"summary": "<p>In a world where superheroes embrace the darker side of their massive celebrity and fame, <b>The Boys</b> centres on a group of vigilantes known informally as \"The Boys,\" who set out to take down corrupt superheroes with no more than blue collar grit and a willingness to fight dirty.</p>",
+				"updated": 1658024036,
+				"_links": {
+					"self": {
+						"href": "https://api.tvmaze.com/shows/15299"
+					},
+					"previousepisode": {
+						"href": "https://api.tvmaze.com/episodes/2249044"
+					}
+				}
+			}
+		}
+	]
+}

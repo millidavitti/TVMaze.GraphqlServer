@@ -1,0 +1,11 @@
+sources:
+  - name: TV Maze
+    handler:
+      jsonSchema:
+        baseUrl: https://api.tvmaze.com
+        operations:
+          - type: Query
+            field: searchShows
+            path: /search/shows?q={arg.query}
+            responseSample: ./src/search.show.json
+            responseTypeName: SearchEntityResponseCollection
