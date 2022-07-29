@@ -1,0 +1,111 @@
+type NewsItem {
+
+  id: String
+
+  body: String
+
+  title: String
+
+}
+
+type Edge {
+
+  node: NewsItem
+
+  cursor: String
+
+}
+
+type PageInfo {
+
+  startCursor: String
+
+  hasNextPage: Boolean
+
+}
+
+type NewsResult {
+
+  totalCount: String
+
+  edges: [Edge]
+
+  pageInfo: PageInfo
+
+}
+
+type Query {
+
+  news(first: Int, afterCursor: String): NewsResult
+
+}
+
+const resolvers = {
+
+ Query: {
+
+  news: (parent, args) => {
+
+    const {first, afterCursor} = args.first;
+
+    let afterIndex = 0
+
+    const data = newsFeed
+
+   if(afterCursor) {
+
+      let nodeIndex = data.findIndex(datum => datum.id === afterCursor)
+
+      if (nodeIndex >= 0) {
+
+        afterIndex = nodeIndex + 1
+
+      }
+
+   }
+
+    const slicedData = data.slice(afterIndex, afterIndex + first)
+
+    const edges = slicedData.map (node => ({
+
+     node,
+
+      cursor: node.id
+
+   }))
+
+    let startCursor = null
+
+   if (edges.length > 0) {
+
+      startCursor = edges[edges.length - 1].node
+
+   }
+
+    let hasNextPage = data.length > afterIndex + first
+
+   return {
+
+     totalCount: data.length,
+
+    edges,
+
+     pageInfo: {
+
+      startCursor,
+
+      hasNextPage,
+
+    },
+
+   };
+
+   },
+
+  },
+
+ },
+
+};
+
+module.exports = resolvers;

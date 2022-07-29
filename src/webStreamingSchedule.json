@@ -1,0 +1,91 @@
+[
+	{
+		"id": 1843172,
+		"url": "https://www.tvmaze.com/episodes/1843172/puppy-dog-pals-3x27-keias-birthday-balloon-bash",
+		"name": "Keia's Birthday Balloon Bash",
+		"season": 3,
+		"number": 27,
+		"type": "regular",
+		"airdate": "2020-05-29",
+		"airtime": "09:00",
+		"airstamp": "2020-05-29T13:00:00+00:00",
+		"runtime": 15,
+		"rating": {
+			"average": null
+		},
+		"image": null,
+		"summary": "<p>Bingo and Rolly go on a mission to find a special balloon for Keia's birthday party.</p>",
+		"_links": {
+			"self": {
+				"href": "https://api.tvmaze.com/episodes/1843172"
+			}
+		},
+		"_embedded": {
+			"show": {
+				"id": 26341,
+				"url": "https://www.tvmaze.com/shows/26341/puppy-dog-pals",
+				"name": "Puppy Dog Pals",
+				"type": "Animation",
+				"language": "English",
+				"genres": ["Comedy", "Children"],
+				"status": "Running",
+				"runtime": 15,
+				"averageRuntime": 15,
+				"premiered": "2017-04-14",
+				"ended": null,
+				"officialSite": "https://disneynow.com/shows/puppy-dog-pals",
+				"schedule": {
+					"time": "08:30",
+					"days": ["Friday"]
+				},
+				"rating": {
+					"average": null
+				},
+				"weight": 82,
+				"network": {
+					"id": 78,
+					"name": "Disney Channel",
+					"country": {
+						"name": "United States",
+						"code": "US",
+						"timezone": "America/New_York"
+					},
+					"officialSite": null
+				},
+				"webChannel": {
+					"id": 83,
+					"name": "DisneyNOW",
+					"country": {
+						"name": "United States",
+						"code": "US",
+						"timezone": "America/New_York"
+					},
+					"officialSite": null
+				},
+				"dvdCountry": null,
+				"externals": {
+					"tvrage": null,
+					"thetvdb": 325978,
+					"imdb": "tt6688750"
+				},
+				"image": {
+					"medium": "https://static.tvmaze.com/uploads/images/medium_portrait/136/342487.jpg",
+					"original": "https://static.tvmaze.com/uploads/images/original_untouched/136/342487.jpg"
+				},
+				"summary": "<p><b>Puppy Dog Pals </b>is about fun-loving pug puppies, brothers Bingo and Rolly, have thrill-seeking appetites that take them on exhilarating adventures in their neighborhood and around the globe. Whether helping their owner Bob or assisting a friend in need, the pugs' motto is that life is more exciting with your best friend by your side. Each episode features two 11-minute stories that showcase Bingo and Rolly's similarities and differences while demonstrating positive lessons about friendship, problem-solving, collaboration, creativity and adventure.</p>",
+				"updated": 1658477644,
+				"_links": {
+					"self": {
+						"href": "https://api.tvmaze.com/shows/26341"
+					},
+					"previousepisode": {
+						"href": "https://api.tvmaze.com/episodes/2362886"
+					},
+					"nextepisode": {
+						"href": "https://api.tvmaze.com/episodes/2365551"
+					}
+				}
+			}
+		}
+	}
+]

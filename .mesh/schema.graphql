@@ -1,0 +1,258 @@
+schema {
+  query: Query
+}
+
+type Query {
+  searchShows(query: ID): [QuerySearchShowsItems]
+  schedules(countryIso: ID, dateIso: ID): [QuerySchedulesItems]
+  webStreamingSchedules(dateIso: ID, countryIso: ID): [QueryWebStreamingSchedulesItems]
+  fullSchedule: FullScheduleConnection
+}
+
+type QuerySearchShowsItems {
+  score: Float
+  show: QuerySearchShowsItemsShow
+}
+
+type QuerySearchShowsItemsShow {
+  id: Int
+  url: URL
+  name: String
+  type: String
+  language: String
+  genres: [String]
+  status: String
+  runtime: Void
+  averageRuntime: Int
+  premiered: Date
+  ended: Void
+  officialSite: URL
+  schedule: QuerySearchShowsItemsShowSchedule
+  rating: QuerySearchShowsItemsShowRating
+  weight: Int
+  network: Void
+  webChannel: QuerySearchShowsItemsShowWebChannel
+  dvdCountry: Void
+  externals: QuerySearchShowsItemsShowExternals
+  image: QuerySearchShowsItemsShowImage
+  summary: String
+  updated: Int
+  links: QuerySearchShowsItemsShowLinks
+}
+
+"A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt."
+scalar URL
+
+"Represents empty values"
+scalar Void
+
+"Represents date values"
+scalar Date
+
+type QuerySearchShowsItemsShowSchedule {
+  time: String
+  days: [String]
+}
+
+type QuerySearchShowsItemsShowRating {
+  average: Float
+}
+
+type QuerySearchShowsItemsShowWebChannel {
+  id: Int
+  name: String
+  country: Void
+  officialSite: URL
+}
+
+type QuerySearchShowsItemsShowExternals {
+  tvrage: Void
+  thetvdb: Int
+  imdb: String
+}
+
+type QuerySearchShowsItemsShowImage {
+  medium: URL
+  original: URL
+}
+
+type QuerySearchShowsItemsShowLinks {
+  self: QuerySearchShowsItemsShowLinksSelf
+  previousepisode: QuerySearchShowsItemsShowLinksSelf
+}
+
+type QuerySearchShowsItemsShowLinksSelf {
+  href: URL
+}
+
+type QuerySchedulesItems {
+  id: Int
+  url: URL
+  name: String
+  season: Int
+  number: Int
+  type: String
+  airdate: Date
+  airtime: String
+  airstamp: DateTime
+  runtime: Int
+  rating: QuerySchedulesItemsRating
+  image: Void
+  summary: Void
+  show: QuerySchedulesItemsShow
+  links: QuerySchedulesItemsLinks
+}
+
+"A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar."
+scalar DateTime
+
+type QuerySchedulesItemsRating {
+  average: Void
+}
+
+type QuerySchedulesItemsShow {
+  id: Int
+  url: URL
+  name: String
+  type: String
+  language: String
+  genres: [String]
+  status: String
+  runtime: Int
+  averageRuntime: Int
+  premiered: Date
+  ended: Void
+  officialSite: URL
+  schedule: QuerySchedulesItemsShowSchedule
+  rating: QuerySchedulesItemsRating
+  weight: Int
+  network: Void
+  webChannel: QuerySchedulesItemsShowWebChannel
+  dvdCountry: Void
+  externals: QuerySchedulesItemsShowExternals
+  image: QuerySearchShowsItemsShowImage
+  summary: String
+  updated: Int
+  links: QuerySchedulesItemsShowLinks
+}
+
+type QuerySchedulesItemsShowSchedule {
+  time: String
+  days: [String]
+}
+
+type QuerySchedulesItemsShowWebChannel {
+  id: Int
+  name: String
+  country: QuerySchedulesItemsShowWebChannelCountry
+  officialSite: Void
+}
+
+type QuerySchedulesItemsShowWebChannelCountry {
+  name: String
+  code: String
+  timezone: String
+}
+
+type QuerySchedulesItemsShowExternals {
+  tvrage: Void
+  thetvdb: Int
+  imdb: Void
+}
+
+type QuerySchedulesItemsShowLinks {
+  self: QuerySearchShowsItemsShowLinksSelf
+  previousepisode: QuerySearchShowsItemsShowLinksSelf
+  nextepisode: QuerySearchShowsItemsShowLinksSelf
+}
+
+type QuerySchedulesItemsLinks {
+  self: QuerySearchShowsItemsShowLinksSelf
+}
+
+type QueryWebStreamingSchedulesItems {
+  id: Int
+  url: URL
+  name: String
+  season: Int
+  number: Int
+  type: String
+  airdate: Date
+  airtime: String
+  airstamp: DateTime
+  runtime: Int
+  rating: QuerySchedulesItemsRating
+  image: Void
+  summary: String
+  links: QuerySchedulesItemsLinks
+  embedded: QueryWebStreamingSchedulesItemsEmbedded
+}
+
+type QueryWebStreamingSchedulesItemsEmbedded {
+  show: QueryWebStreamingSchedulesItemsEmbeddedShow
+}
+
+type QueryWebStreamingSchedulesItemsEmbeddedShow {
+  id: Int
+  url: URL
+  name: String
+  type: String
+  language: String
+  genres: [String]
+  status: String
+  runtime: Int
+  averageRuntime: Int
+  premiered: Date
+  ended: Void
+  officialSite: URL
+  schedule: QuerySchedulesItemsShowSchedule
+  rating: QuerySchedulesItemsRating
+  weight: Int
+  network: QuerySchedulesItemsShowWebChannel
+  webChannel: QuerySchedulesItemsShowWebChannel
+  dvdCountry: Void
+  externals: QuerySearchShowsItemsShowExternals
+  image: QuerySearchShowsItemsShowImage
+  summary: String
+  updated: Int
+  links: QuerySchedulesItemsShowLinks
+}
+
+type QueryFullScheduleItems {
+  id: Int
+  url: URL
+  name: String
+  season: Int
+  number: Int
+  type: String
+  airdate: Date
+  airtime: String
+  airstamp: DateTime
+  runtime: Int
+  rating: QuerySchedulesItemsRating
+  image: Void
+  summary: Void
+  links: QuerySchedulesItemsLinks
+  embedded: QueryWebStreamingSchedulesItemsEmbedded
+}
+
+type FullSchedule {
+  schedule: FullScheduleConnection
+}
+
+type FullScheduleConnection {
+  edges: [FullScheduleEdge!]!
+  pageInfo: PageInfo!
+}
+
+type FullScheduleEdge {
+  cursor: String!
+  node: QueryFullScheduleItems!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String!
+  endCursor: String!
+}

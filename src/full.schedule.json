@@ -1,0 +1,63 @@
+[
+	{
+		"id": 2330339,
+		"url": "https://www.tvmaze.com/episodes/2330339/tales-of-demons-and-gods-5x80-episode-252",
+		"name": "Episode 252",
+		"season": 5,
+		"number": 80,
+		"type": "regular",
+		"airdate": "2022-07-27",
+		"airtime": "",
+		"airstamp": "2022-07-27T04:00:00+00:00",
+		"runtime": 7,
+		"rating": { "average": null },
+		"image": null,
+		"summary": null,
+		"_links": { "self": { "href": "https://api.tvmaze.com/episodes/2330339" } },
+		"_embedded": {
+			"show": {
+				"id": 30612,
+				"url": "https://www.tvmaze.com/shows/30612/tales-of-demons-and-gods",
+				"name": "Tales of Demons and Gods",
+				"type": "Animation",
+				"language": "Chinese",
+				"genres": ["Action", "Adventure", "Anime"],
+				"status": "Running",
+				"runtime": 7,
+				"averageRuntime": 7,
+				"premiered": "2017-05-09",
+				"ended": null,
+				"officialSite": "https://bangumi.bilibili.com/anime/6159",
+				"schedule": { "time": "", "days": ["Wednesday", "Saturday"] },
+				"rating": { "average": 6.6 },
+				"weight": 88,
+				"network": null,
+				"webChannel": {
+					"id": 51,
+					"name": "Bilibili",
+					"country": {
+						"name": "China",
+						"code": "CN",
+						"timezone": "Asia/Shanghai"
+					},
+					"officialSite": null
+				},
+				"dvdCountry": null,
+				"externals": { "tvrage": null, "thetvdb": 330774, "imdb": null },
+				"image": {
+					"medium": "https://static.tvmaze.com/uploads/images/medium_portrait/121/303124.jpg",
+					"original": "https://static.tvmaze.com/uploads/images/original_untouched/121/303124.jpg"
+				},
+				"summary": "<p>Killed by a Sage Emperor and reborn as his 13 year old self, Nie Li was given a second chance at life. A second chance to change everything and save his loved ones and his beloved city. He shall once again battle with the Sage Emperor to avenge his death and those of his beloved . With the vast knowledge of hundred years of life he accumulated in his previous life, wielding the strongest demon spirits, he shall reach the pinnacle of Martial Arts. Enmities of the past will be settled in this new lifetime. \"Since I'm back, then in this lifetime, I shall become the King of the Gods that dominate everything. Let everything else tremble beneath my feet!\"</p>",
+				"updated": 1653896277,
+				"_links": {
+					"self": { "href": "https://api.tvmaze.com/shows/30612" },
+					"previousepisode": {
+						"href": "https://api.tvmaze.com/episodes/2330339"
+					},
+					"nextepisode": { "href": "https://api.tvmaze.com/episodes/2330340" }
+				}
+			}
+		}
+	}
+]

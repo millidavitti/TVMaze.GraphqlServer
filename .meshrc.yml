@@ -6,6 +6,57 @@ sources:
         operations:
           - type: Query
             field: searchShows
-            path: /search/shows?q={arg.query}
-            responseSample: ./src/search.show.json
-            responseTypeName: SearchEntityResponseCollection
+            path: /search/shows?q={args.query}
+            responseSample: ./src/search.shows.json
+            responseTypeName: SearchEntityResponse
+          - type: Query
+            field: schedules
+            path: /schedule?country={args.countryISO}&date={args.dateISO}
+            responseSample: ./src/show.schedules.json
+            responseTypeName: ScheduleEntityResponse
+          - type: Query
+            field: webStreamingSchedules
+            path: /schedule/web?date={args.dateISO}&country={args.countryISO}
+            responseSample: ./src/webStreamingSchedule.json
+            responseTypeName: WebStreamingEntityResponse
+          - type: Query
+            field: fullSchedule
+            path: /schedule/full
+            responseSample: ./src/full.schedule.json
+            responseTypeName: FullScheduleEntityResponse
+transforms:
+  - namingConvention:
+      typeNames: pascalCase
+      enumValues: upperCase
+      fieldNames: camelCase
+      fieldArgumentNames: camelCase
+  - replace-field:
+      typeDefs: |
+        type FullSchedule{
+           schedule: FullScheduleConnection
+         }
+         
+         type FullScheduleConnection{
+           edges: [FullScheduleEdge!]!
+           pageInfo: PageInfo!
+         }
+
+         type FullScheduleEdge{
+           cursor: String!
+           node: QueryFullScheduleItems!
+         }
+
+         type PageInfo{
+           hasNextPage: Boolean!
+           hasPreviousPage: Boolean!
+           startCursor: String!
+           endCursor: String!
+         }
+      replacements:
+        - from:
+            type: Query
+            field: fullSchedule
+          to:
+            type: FullSchedule
+            field: schedule
+          scope: config

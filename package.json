@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "mesh dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,8 @@
   "dependencies": {
     "@graphql-mesh/cli": "^0.75.3",
     "@graphql-mesh/json-schema": "^0.30.4",
+    "@graphql-mesh/transform-naming-convention": "^0.10.61",
+    "@graphql-mesh/transform-replace-field": "^0.3.71",
     "graphql": "^16.5.0"
   }
 }
