@@ -1,111 +1,151 @@
-type NewsItem {
-
-  id: String
-
-  body: String
-
-  title: String
-
+class Node {
+	constructor(data) {
+		this.data = data;
+		this.next = null;
+	}
 }
 
-type Edge {
+class LinkedList {
+	constructor() {
+		this.head = null;
+		this.tail = null;
+		this.size = 0;
+	}
 
-  node: NewsItem
+	isEmpty() {
+		if (this.head) return false;
+		return true;
+	}
 
-  cursor: String
+	insert(data) {
+		const node = new Node(data);
 
+		if (!this.head) {
+			this.head = this.tail = node;
+		} else {
+			this.tail.next = node;
+			this.tail = node;
+		}
+		this.size++;
+	}
+
+	insertAt(data, index) {
+		const node = new Node(data);
+		let prev = this.head;
+		let next = prev?.next;
+		let pos = 1;
+
+		if (!index || this.isEmpty()) {
+			node.next = this.head;
+			this.head = node;
+		} else {
+			while (pos < index && next) {
+				pos++;
+				prev = next;
+				next = prev.next;
+			}
+			node.next = next;
+			prev.next = node;
+		}
+		this.size++;
+	}
+
+	remove(index) {
+		if (!index || index > this.size) return;
+		let prev = this.head;
+		let next = prev.next;
+		let pos = 1;
+
+		while (pos < index && next) {
+			pos++;
+			prev = next;
+			next = prev.next;
+		}
+		if (!next) return -1;
+		prev.next = next.next;
+		this.size--;
+	}
+
+	find(index) {
+		let prev = this.head;
+		let next = prev.next;
+		let pos = 1;
+
+		while (next) {
+			pos++;
+			prev = next;
+			next = prev.next;
+			if (pos > index) return prev;
+		}
+		return -1;
+	}
+
+	toArray() {
+		let prev = this.head;
+		let next = prev.next;
+		const log = [];
+
+		while (next) {
+			log.push(prev.data);
+			prev = next;
+			next = prev.next;
+		}
+		log.push(prev.data);
+		return log;
+	}
+
+	last(list) {
+		if (this.isEmpty(list)) return;
+	}
 }
 
-type PageInfo {
+const ll = new LinkedList();
 
-  startCursor: String
+ll.insert(1000);
+ll.insert(2000);
+ll.insert(3000);
+ll.insert(4000);
+ll.insert(5000);
+ll.insert(7000);
+ll.insert(8000);
+ll.insert(16723);
+ll.insertAt(9000, 5);
+// ll.insert({ Daniel: 4087 });
+// ll.insert({ Donald: 9000 });
+// ll.insert({ David: 1100 });
+// ll.insert({ jhgs: 5432 });
+// ll.insert({ siugs: 73873 });
+// ll.insert({ wouqo: 563 });
+// ll.insert({ Desmond: 1654 });
+ll.insertAt({ Pops: "The Head!" }, 5);
+ll.insertAt({ Mom: "The Second!" }, 3);
+// ll.insertAt({ Ann: "The girl i knew!" }, 9);
+ll.remove(11);
+console.log(ll);
+console.log(ll.toArray());
 
-  hasNextPage: Boolean
+console.log(ll.find(12));
 
+function binarySearch(list, target) {
+	const len = list.length;
+	let left = 0;
+	let right = len - 1;
+
+	while (left < right) {
+		let midPoint = Math.floor((left + right) / 2);
+		if (target > list[midPoint]) left = midPoint + 1;
+		else right = midPoint;
+		if (list[left] == target) return list[left];
+	}
+	return -1;
 }
 
-type NewsResult {
-
-  totalCount: String
-
-  edges: [Edge]
-
-  pageInfo: PageInfo
-
-}
-
-type Query {
-
-  news(first: Int, afterCursor: String): NewsResult
-
-}
-
-const resolvers = {
-
- Query: {
-
-  news: (parent, args) => {
-
-    const {first, afterCursor} = args.first;
-
-    let afterIndex = 0
-
-    const data = newsFeed
-
-   if(afterCursor) {
-
-      let nodeIndex = data.findIndex(datum => datum.id === afterCursor)
-
-      if (nodeIndex >= 0) {
-
-        afterIndex = nodeIndex + 1
-
-      }
-
-   }
-
-    const slicedData = data.slice(afterIndex, afterIndex + first)
-
-    const edges = slicedData.map (node => ({
-
-     node,
-
-      cursor: node.id
-
-   }))
-
-    let startCursor = null
-
-   if (edges.length > 0) {
-
-      startCursor = edges[edges.length - 1].node
-
-   }
-
-    let hasNextPage = data.length > afterIndex + first
-
-   return {
-
-     totalCount: data.length,
-
-    edges,
-
-     pageInfo: {
-
-      startCursor,
-
-      hasNextPage,
-
-    },
-
-   };
-
-   },
-
-  },
-
- },
-
-};
-
-module.exports = resolvers;
+console.log(
+	binarySearch(
+		[
+			1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+			19, 20,
+		],
+		10,
+	),
+);
